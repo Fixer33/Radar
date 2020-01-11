@@ -63,5 +63,18 @@ namespace Radar
         {
 
         }
+
+
+        public Window1 authWindow;
+
+        private void DataEnterWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (authWindow == null)
+            {
+                Application.Restart();
+                return;
+            }
+            authWindow.Close();
+        }
     }
 }

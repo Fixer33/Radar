@@ -67,18 +67,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="RadarWindow.xaml.cs">
-      <DependentUpon>RadarWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Sensor.cs" />
-    <Compile Include="SensorDataControl.cs">
+    <Compile Include="DataEnterWindow\SensorDataControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SensorDataControl.Designer.cs">
+    <Compile Include="DataEnterWindow\SensorDataControl.Designer.cs">
       <DependentUpon>SensorDataControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Autorization.xaml.cs">
@@ -88,26 +80,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataEnterWindow.cs">
+    <Compile Include="DataEnterWindow\DataEnterWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataEnterWindow.Designer.cs">
+    <Compile Include="DataEnterWindow\DataEnterWindow.Designer.cs">
       <DependentUpon>DataEnterWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="GroupListUserControl.cs">
+    <Compile Include="DataEnterWindow\GroupListUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GroupListUserControl.Designer.cs">
+    <Compile Include="DataEnterWindow\GroupListUserControl.Designer.cs">
       <DependentUpon>GroupListUserControl.cs</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-    <Page Include="RadarWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Compile Include="Calc.cs" />
     <Page Include="Autorization.xaml">
       <SubType>Designer</SubType>
@@ -128,17 +112,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="DataEnterWindow.resx">
+    <EmbeddedResource Include="DataEnterWindow\DataEnterWindow.resx">
       <DependentUpon>DataEnterWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GroupListUserControl.resx">
+    <EmbeddedResource Include="DataEnterWindow\GroupListUserControl.resx">
       <DependentUpon>GroupListUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SensorDataControl.resx">
+    <EmbeddedResource Include="DataEnterWindow\SensorDataControl.resx">
       <DependentUpon>SensorDataControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

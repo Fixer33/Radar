@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Radar"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
+        Title="Window1" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <TextBox x:Name="LoginTB" HorizontalAlignment="Left" Height="41" Margin="317,124,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Width="150"/>
         <!--<TextBox x:Name="PasswordTB" HorizontalAlignment="Left" Height="41" Margin="317,203,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="150" />-->
