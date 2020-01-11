@@ -1,4 +1,4 @@
-﻿namespace UserControls
+﻿namespace Radar
 {
     partial class SensorDataControl
     {
@@ -114,6 +114,7 @@
             // 
             // panel4
             // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel4.Controls.Add(this.DegreesField);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 104);
@@ -131,13 +132,14 @@
             0,
             0});
             this.DegreesField.Name = "DegreesField";
-            this.DegreesField.Size = new System.Drawing.Size(128, 26);
+            this.DegreesField.Size = new System.Drawing.Size(128, 23);
             this.DegreesField.TabIndex = 1;
             this.DegreesField.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.DegreesField.ValueChanged += new System.EventHandler(this.DegreesField_ValueChanged);
             // 
             // panel3
             // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.DistanceField);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -155,7 +157,7 @@
             0,
             0});
             this.DistanceField.Name = "DistanceField";
-            this.DistanceField.Size = new System.Drawing.Size(128, 26);
+            this.DistanceField.Size = new System.Drawing.Size(128, 23);
             this.DistanceField.TabIndex = 1;
             this.DistanceField.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.DistanceField.Value = new decimal(new int[] {

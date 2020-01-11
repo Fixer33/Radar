@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataEnterWindow));
             this.panel1 = new System.Windows.Forms.Panel();
             this.sensorCountField = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
@@ -42,8 +43,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupListUserControl1 = new Radar.GroupListUserControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sensorCountField)).BeginInit();
             this.panel2.SuspendLayout();
@@ -51,6 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.side2Field)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.side1Field)).BeginInit();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -79,13 +82,14 @@
             0,
             0});
             this.sensorCountField.Name = "sensorCountField";
-            this.sensorCountField.Size = new System.Drawing.Size(120, 32);
+            this.sensorCountField.Size = new System.Drawing.Size(120, 27);
             this.sensorCountField.TabIndex = 7;
             this.sensorCountField.Value = new decimal(new int[] {
             4,
             0,
             0,
             0});
+            this.sensorCountField.ValueChanged += new System.EventHandler(this.sensorCountField_ValueChanged);
             // 
             // label6
             // 
@@ -93,7 +97,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.Location = new System.Drawing.Point(12, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(321, 26);
+            this.label6.Size = new System.Drawing.Size(265, 22);
             this.label6.TabIndex = 7;
             this.label6.Text = "Введите количество датчиков";
             // 
@@ -116,6 +120,7 @@
             this.EnterDataBut.TabIndex = 0;
             this.EnterDataBut.Text = "Внести данные";
             this.EnterDataBut.UseVisualStyleBackColor = true;
+            this.EnterDataBut.Click += new System.EventHandler(this.EnterDataBut_Click);
             // 
             // panel3
             // 
@@ -138,7 +143,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.Location = new System.Drawing.Point(271, 69);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(21, 20);
+            this.label4.Size = new System.Drawing.Size(17, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "м";
             // 
@@ -148,7 +153,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.Location = new System.Drawing.Point(271, 40);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(21, 20);
+            this.label5.Size = new System.Drawing.Size(17, 17);
             this.label5.TabIndex = 5;
             this.label5.Text = "м";
             // 
@@ -157,16 +162,18 @@
             this.side2Field.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.side2Field.Location = new System.Drawing.Point(145, 67);
             this.side2Field.Name = "side2Field";
-            this.side2Field.Size = new System.Drawing.Size(120, 26);
+            this.side2Field.Size = new System.Drawing.Size(120, 23);
             this.side2Field.TabIndex = 4;
+            this.side2Field.ValueChanged += new System.EventHandler(this.side1Field_ValueChanged);
             // 
             // side1Field
             // 
             this.side1Field.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.side1Field.Location = new System.Drawing.Point(145, 38);
             this.side1Field.Name = "side1Field";
-            this.side1Field.Size = new System.Drawing.Size(120, 26);
+            this.side1Field.Size = new System.Drawing.Size(120, 23);
             this.side1Field.TabIndex = 3;
+            this.side1Field.ValueChanged += new System.EventHandler(this.side1Field_ValueChanged);
             // 
             // label3
             // 
@@ -174,7 +181,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(33, 69);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 20);
+            this.label3.Size = new System.Drawing.Size(74, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "сторона 2";
             // 
@@ -184,7 +191,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(33, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 20);
+            this.label2.Size = new System.Drawing.Size(74, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "сторона 1";
             // 
@@ -194,7 +201,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(188, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(448, 26);
+            this.label1.Size = new System.Drawing.Size(369, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Введите параметры защищаемой области";
             // 
@@ -208,23 +215,32 @@
             this.panel4.Size = new System.Drawing.Size(800, 324);
             this.panel4.TabIndex = 1;
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.groupListUserControl1);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 44);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(800, 280);
+            this.panel5.TabIndex = 2;
+            // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox1.Location = new System.Drawing.Point(325, 6);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(124, 32);
+            this.textBox1.Size = new System.Drawing.Size(124, 27);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Обработка";
             // 
-            // panel5
+            // groupListUserControl1
             // 
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 44);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(800, 280);
-            this.panel5.TabIndex = 2;
+            this.groupListUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupListUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupListUserControl1.Name = "groupListUserControl1";
+            this.groupListUserControl1.Size = new System.Drawing.Size(800, 280);
+            this.groupListUserControl1.TabIndex = 0;
             // 
             // DataEnterWindow
             // 
@@ -235,8 +251,10 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DataEnterWindow";
             this.Text = "DataEnterWindow";
+            this.Load += new System.EventHandler(this.DataEnterWindow_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sensorCountField)).EndInit();
@@ -247,6 +265,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.side1Field)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -269,5 +288,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panel5;
+        private GroupListUserControl groupListUserControl1;
     }
 }
