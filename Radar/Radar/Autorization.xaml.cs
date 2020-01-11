@@ -27,9 +27,13 @@ namespace Radar
      
         private void AuthButton_Click(object sender, RoutedEventArgs e)
         {
-            if (LoginTB.Text == "admin" && PasswordTB.Text == "12456")
+            if (LoginTB.Text == "admin" && PasswordTB.Password == "12456")
             {
                 MessageBox.Show("Zdes' mogla bit' vasha reklama");
+            }
+            else
+            {
+                MessageBox.Show("Zdes' mogla bit' vasha reklama, no parol ne pravilniy(");
             }
         }
     }
