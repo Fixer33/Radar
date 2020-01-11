@@ -42,6 +42,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -51,15 +52,35 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UserControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\UserControls.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RadarWindow.xaml.cs">
+      <DependentUpon>RadarWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sensor.cs" />
+    <Compile Include="SensorDataControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SensorDataControl.Designer.cs">
+      <DependentUpon>SensorDataControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Autorization.xaml.cs">
       <DependentUpon>Autorization.xaml</DependentUpon>
     </Compile>
@@ -67,6 +88,26 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataEnterWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataEnterWindow.Designer.cs">
+      <DependentUpon>DataEnterWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupListUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GroupListUserControl.Designer.cs">
+      <DependentUpon>GroupListUserControl.cs</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="RadarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Compile Include="Calc.cs" />
     <Page Include="Autorization.xaml">
       <SubType>Designer</SubType>
@@ -87,9 +128,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="DataEnterWindow.resx">
+      <DependentUpon>DataEnterWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupListUserControl.resx">
+      <DependentUpon>GroupListUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SensorDataControl.resx">
+      <DependentUpon>SensorDataControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -98,6 +148,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Icons\radar.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
