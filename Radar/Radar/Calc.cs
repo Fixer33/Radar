@@ -168,17 +168,23 @@ namespace Radar
             for (int i = 0; i < sensors.Length; i++)
             {
                 int buf_state = -1;
+                int buf_rslt =  0 ;
                 PointF result = GetIntersectionPointOfTwoLines(point, centr, sensors[i], sensors[(i + 1) % sensors.Length], out buf_state);
                 if (buf_state != 1 )
                     continue;
                 else
                 {
-                    dist = GetDistanceBetweenPoints(centr, result);
-                    return true;
+                    buf_rslt= GetDistanceBetweenPoints(centr, result);
+                    if(dist<buf_rslt)
+                    {
+                        dist=buf_rslt;
+                    } 
                 }
             }
-
-            return false;
+            if (dist > 0  )
+                return true;
+            else
+                return false;
 
 
         }
