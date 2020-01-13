@@ -168,17 +168,23 @@ namespace Radar
             for (int i = 0; i < sensors.Length; i++)
             {
                 int buf_state = -1;
+                int buf_rslt =  0 ;
                 PointF result = GetIntersectionPointOfTwoLines(point, centr, sensors[i], sensors[(i + 1) % sensors.Length], out buf_state);
                 if (buf_state != 1 )
                     continue;
                 else
                 {
-                    dist = GetDistanceBetweenPoints(centr, result);
-                    return true;
+                    buf_rslt= GetDistanceBetweenPoints(centr, result);
+                    if(dist<buf_rslt)
+                    {
+                        dist=buf_rslt;
+                    } 
                 }
             }
-
-            return false;
+            if (dist > 0  )
+                return true;
+            else
+                return false;
 
 
         }
@@ -238,6 +244,34 @@ namespace Radar
         {
             float a = GetAngle(point, centr);
             return GetPointFByAngleAndDist(a, GetDistanceBetweenPoints(point, centr)- step, centr);
+
+        }
+
+        /// <summary>
+        /// Check is Centr Inside the Area of sensors
+        /// </summary>
+        /// <param name="point">Point to check</param>
+        /// <param name="sensors">Points constituting area </param>
+        /// <returns></returns>
+        public bool CheckPointInsideArea(PointF point , PointF[] sensors)
+        {
+            PointF rand = GetPointFByAngleAndDist(31, 999, point);
+            int count = 0;
+            for (int i = 0; i < sensors.Length; i++)
+            {
+                int buf_state = -1;
+                PointF result = GetIntersectionPointOfTwoLines(rand, point, sensors[i], sensors[(i + 1) % sensors.Length], out buf_state);
+                if (buf_state != 1)
+                    continue;
+                else
+                {
+                    count++;
+                }
+            }
+            if (count % 2 != 0)
+                return true;
+            else
+                return false;
 
         }
     }
