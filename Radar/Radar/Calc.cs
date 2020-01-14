@@ -14,7 +14,7 @@ namespace Radar
         /// </summary>
         /// <param name="coord">point</param>
         /// <returns></returns>
-        public float GetAngle(PointF coord)
+        public static float GetAngle(PointF coord)
         {
             float angle = (float)(Math.Atan2(coord.Y, coord.X) * 57.2957795130823);// 57... = 180/PI ;
             angle = (angle < 0) ? angle + 360 : angle;
@@ -27,7 +27,7 @@ namespace Radar
         /// <param name="coord">point</param>
         /// <param name="origin">origin of coordinates</param>
         /// <returns></returns>
-        public float GetAngle(PointF coord,PointF origin)
+        public static float GetAngle(PointF coord,PointF origin)
         {
             float angle = (float)(Math.Atan2(coord.Y-origin.Y, coord.X-origin.X) * 57.2957795130823);// 57... = 180/PI ;
             angle = (angle < 0) ? angle + 360 : angle;
@@ -41,7 +41,7 @@ namespace Radar
         /// </summary>
         /// <param name="coord">point</param>
         /// <returns></returns>
-        public string GetDirection(PointF coord)
+        public static string GetDirection(PointF coord)
         {
             float angle = GetAngle(coord);
             float min = 400f;
@@ -87,7 +87,7 @@ namespace Radar
         /// <param name="coord">point</param>
         /// <param name="origin">origin of coordinates</param>
         /// <returns></returns>
-        public string GetDirection(PointF coord,PointF origin)
+        public static string GetDirection(PointF coord,PointF origin)
         {
             float angle = GetAngle(coord,origin);
             float min = 400f;
@@ -159,8 +159,8 @@ namespace Radar
                     break;
             }
             
-            string textToReturn = $"
-                Опасность! \n
+            string textToReturn = $@"
+                Опасность!
                 Проникновение на территорию с {bufText} направления";
             return textToReturn;    
         }
@@ -175,7 +175,7 @@ namespace Radar
         /// <param name="dist"> distance between points</param>
         /// <param name="source"> soure point</param>
         /// <returns></returns>
-        public PointF GetPointFByAngleAndDist(float angle,float dist,PointF source)
+        public static PointF GetPointFByAngleAndDist(float angle,float dist,PointF source)
         {
             angle =(float) (angle * Math.PI / 180);
             PointF result = new PointF((float)(source.X + dist * Math.Cos(angle)), (float)(source.Y + dist * Math.Sin(angle)));
@@ -183,9 +183,11 @@ namespace Radar
         }
             
 
-        public float GetDistanceBetweenPoints (PointF point1,PointF point2)
+        public static float GetDistanceBetweenPoints (PointF point1,PointF point2)
         {
-            float result =(float) Math.Sqrt(Math.Pow(point2.X - point1.X, 2) + Math.Pow(point2.Y - point2.X,2));
+            float dx = point2.X - point1.X;
+            float dy = point2.Y - point1.Y;
+            float result = (float)Math.Sqrt(dx * dx + dy * dy);
             return result;
         }
 
@@ -200,7 +202,7 @@ namespace Radar
         /// <param name="sensors">Контур сенсоров</param>
         /// <param name="dist">Расстояние от центра до точки пересечения "проверяемой" точки с контуром</param>
         /// <returns>true - точка переекает контур на расстоянии dist от центра (если точка на расстоянии меньше чем dist от центра , то  она пересекла контур) , false - точка не пересекает контур по пути к центру.</returns>
-        public bool CheckCollision (PointF point , PointF centr, PointF[] sensors, out float dist,out int odin , out int dva)
+        public static bool CheckCollision (PointF point , PointF centr, PointF[] sensors, out float dist,out int odin , out int dva)
         {
             dist = 10000f;
             odin = 0;
@@ -233,7 +235,7 @@ namespace Radar
 
         }
         
-         private  static float vector_mult(float ax,float ay,float bx,float by) //векторное произведение
+         private static float vector_mult(float ax,float ay,float bx,float by) //векторное произведение
          {
             return ax*by-bx*ay;
          }
@@ -243,7 +245,7 @@ namespace Radar
           float v2 = vector_mult(p4.X - p3.X, p4.Y - p3.Y, p2.X - p3.X, p2.Y - p3.Y);
           float v3 = vector_mult(p2.X - p1.X, p2.Y - p1.Y, p3.X - p1.X, p3.Y - p1.Y);
           float v4 = vector_mult(p2.X - p1.X, p2.Y - p1.Y, p4.X - p1.X, p4.Y - p1.Y);
-          if ( (v1*v2)<0 && (v3*v4)<0 )
+          if ( (v1*v2)<0 && (v3*v4) < 0 )
             return true;
           return false;
         }
@@ -299,7 +301,7 @@ namespace Radar
             return result;
         }
 
-        public PointF StepOfPointTowardCentr(PointF point,PointF centr, float step )
+        public static PointF StepOfPointTowardCentr(PointF point,PointF centr, float step )
         {
             float a = GetAngle(point, centr);
             float b= GetDistanceBetweenPoints(point, centr);
@@ -313,7 +315,7 @@ namespace Radar
         /// <param name="point">Point to check</param>
         /// <param name="sensors">Points constituting area </param>
         /// <returns></returns>
-        public bool CheckPointInsideArea(PointF point , PointF[] sensors)
+        public static bool CheckPointInsideArea(PointF point , PointF[] sensors)
         {
             PointF rand = GetPointFByAngleAndDist(31, 1500, point);
             int count = 0;

@@ -181,5 +181,8 @@
   <ItemGroup>
     <None Include="Resources\03265.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\radar_wifi_signal_6898.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

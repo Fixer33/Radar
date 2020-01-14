@@ -40,7 +40,7 @@ namespace Radar
         private const float FirstCircleDiameterPerc = 14.28571f;
         private const double sensorCircleRadius = 20d;
         private const double targetCircleRadius = 30d;
-        private const float TargetSpeed = 1f;
+        private const float TargetSpeed = 10f;
 
         private List<Sensor> sensorList;
 
@@ -64,6 +64,7 @@ namespace Radar
         private List<Ellipse> targets = new List<Ellipse>();
 
         private List<float> targetDistances = new List<float>();
+        private List<(int one, int two)> targetSensors = new List<(int one, int two)>();
 
         private List<Ellipse> radarCircles = new List<Ellipse>();
 
@@ -85,12 +86,14 @@ namespace Radar
                 temp.Add(new PointF(pos.Y, pos.X));
             }
 
-            if (Calc.CheckCollision(posToSpawn, new PointF(0, 0), temp.ToArray(), out float distance))
+            if (Calc.CheckCollision(posToSpawn, new PointF(0, 0), temp.ToArray(), out float distance, out int one, out int two))
             {
                 Ellipse newTarget = PlaceCircle(targetFill, targetStroke, 1, targetCircleRadius, targetCircleRadius, posToSpawn);
                 targets.Add(newTarget);
                 targetDistances.Add(distance);
+                targetSensors.Add((one, two));
             }
+            
         }
 
         private SolidColorBrush RadarDefaultColor = new SolidColorBrush(System.Windows.Media.Color.FromRgb(0, 36, 0));
@@ -122,7 +125,14 @@ namespace Radar
         private void DefensiveAreaEnter()
         {
             timer.Enabled = false;
-            PanicWindow pw = new PanicWindow("Nikita, zadolbal,  zapili uzhe etot tekst");
+            PanicWindow pw = new PanicWindow("");
+            pw.rw = this;
+            pw.ShowDialog();
+        }
+        private void DefensiveAreaEnter(int i, PointF targetPos)
+        {
+            timer.Enabled = false;
+            PanicWindow pw = new PanicWindow(Calc.GetDirection(targetPos, new PointF(0,0)) + $" (Датчики {targetSensors[i].one + 1} и {targetSensors[i].two + 1})");
             pw.rw = this;
             pw.ShowDialog();
         }
@@ -153,12 +163,12 @@ namespace Radar
                 targets[i].Margin = new Thickness(newPos.X, 0, 0, newPos.Y);
 
                 var distance = Calc.GetDistanceBetweenPoints(targetPos, new PointF(0, 0));
-                if (distance <= /*targetDistances[i]*/20)
+                if (distance <= targetDistances[i])
                 {
+                    DefensiveAreaEnter(i, targetPos);
                     MainGrid.Children.Remove(targets[i]);
-                    targets.RemoveAt(i);
                     targetDistances.RemoveAt(i);
-                    DefensiveAreaEnter();
+                    targets.RemoveAt(i);
                 }
             }
         }

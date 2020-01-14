@@ -44,8 +44,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupListUserControl1 = new Radar.GroupListUserControl();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sensorCountField)).BeginInit();
             this.panel2.SuspendLayout();
@@ -169,7 +169,7 @@
             0});
             this.side2Field.Location = new System.Drawing.Point(145, 67);
             this.side2Field.Maximum = new decimal(new int[] {
-            1900,
+            1000,
             0,
             0,
             0});
@@ -177,7 +177,7 @@
             this.side2Field.Size = new System.Drawing.Size(120, 23);
             this.side2Field.TabIndex = 4;
             this.side2Field.Value = new decimal(new int[] {
-            700,
+            1000,
             0,
             0,
             0});
@@ -193,7 +193,7 @@
             0});
             this.side1Field.Location = new System.Drawing.Point(145, 38);
             this.side1Field.Maximum = new decimal(new int[] {
-            1900,
+            1000,
             0,
             0,
             0});
@@ -201,7 +201,7 @@
             this.side1Field.Size = new System.Drawing.Size(120, 23);
             this.side1Field.TabIndex = 3;
             this.side1Field.Value = new decimal(new int[] {
-            700,
+            1000,
             0,
             0,
             0});
@@ -256,6 +256,14 @@
             this.panel5.Size = new System.Drawing.Size(800, 280);
             this.panel5.TabIndex = 2;
             // 
+            // groupListUserControl1
+            // 
+            this.groupListUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupListUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupListUserControl1.Name = "groupListUserControl1";
+            this.groupListUserControl1.Size = new System.Drawing.Size(800, 280);
+            this.groupListUserControl1.TabIndex = 0;
+            // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -265,14 +273,6 @@
             this.textBox1.Size = new System.Drawing.Size(102, 27);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Обработка";
-            // 
-            // groupListUserControl1
-            // 
-            this.groupListUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupListUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.groupListUserControl1.Name = "groupListUserControl1";
-            this.groupListUserControl1.Size = new System.Drawing.Size(800, 280);
-            this.groupListUserControl1.TabIndex = 0;
             // 
             // DataEnterWindow
             // 
