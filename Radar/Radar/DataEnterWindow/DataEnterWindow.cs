@@ -40,28 +40,24 @@ namespace Radar
         private void DataEnterWindow_Load(object sender, EventArgs e)
         {
             sensorCountField_ValueChanged(sensorCountField, new EventArgs());
-        }
-
-        private void side1Field_ValueChanged(object sender, EventArgs e)
-        {
-            NumericUpDown upDown = (NumericUpDown)sender;
-
-            if (int.TryParse(upDown.Value.ToString(), out int value))
-            {
-                if (upDown == side1Field)
-                {
-                    Side1 = value;
-                }
-                else if (upDown == side2Field)
-                {
-                    Side1 = value;
-                }
-            }
+            side1Field_ValueChanged(side1Field, new EventArgs());
+            side2Field_ValueChanged(side2Field, new EventArgs());
         }
 
         private void EnterDataBut_Click(object sender, EventArgs e)
         {
+            List<Sensor> sensors = new List<Sensor>();
+            foreach (SensorDataControl sensor in sensorControls)
+            {
+                Sensor newSensor = new Sensor(sensor.Number, sensor.Distance, sensor.Degrees);
+                sensors.Add(newSensor);
+            }
 
+            RadarWindow rw = new RadarWindow(sensors, authWindow, this);
+            rw.Width = Side1 + 6;
+            rw.Height = Side2 + 29;
+            this.Hide();
+            rw.Show();
         }
 
 
@@ -75,6 +71,22 @@ namespace Radar
                 return;
             }
             authWindow.Close();
+        }
+
+        private void side1Field_ValueChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(side1Field.Value.ToString(), out int value))
+            {
+                Side1 = value;
+            }
+        }
+
+        private void side2Field_ValueChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(side2Field.Value.ToString(), out int value))
+            {
+                Side2 = value;
+            }
         }
     }
 }
