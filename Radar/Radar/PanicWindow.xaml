@@ -1,0 +1,16 @@
+﻿<Window x:Class="Radar.PanicWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Radar"
+        mc:Ignorable="d"
+        Title="" Height="302.424" Width="406.366" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Background="#240000">
+
+        <TextBox Background="#330F0F" Foreground="#FF0000" x:Name="textBox" HorizontalAlignment="Left" Height="196" Margin="10,31,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="380" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextAlignment="Center"/>
+        <Label x:Name="label" Content="Опасность!" HorizontalAlignment="Center" Margin="0,1,0,0" VerticalAlignment="Top" FontSize="15" Foreground="#FF0000"/>
+        <Button x:Name="button" Background="#FF0000" Content="Тревога!" HorizontalAlignment="Center" Margin="46,232,246,0" VerticalAlignment="Top" Width="108" Click="button_Click" Height="26"/>
+        <Button x:Name="button2" Background="Green" Content="Дежурная часть" HorizontalAlignment="Center" Margin="242,232,42,0" VerticalAlignment="Top" Width="116" Click="button2_Click" Height="26"/>
+    </Grid>
+</Window>

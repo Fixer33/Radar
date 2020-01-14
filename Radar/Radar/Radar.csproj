@@ -93,7 +93,40 @@
       <DependentUpon>GroupListUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Calc.cs" />
+    <Compile Include="FuncButtonsWIndow.xaml.cs">
+      <DependentUpon>FuncButtonsWIndow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PanicWindow.xaml.cs">
+      <DependentUpon>PanicWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sensor.cs" />
+    <Compile Include="SensorDataShowingControl.xaml.cs">
+      <DependentUpon>SensorDataShowingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SensorDataWindow.xaml.cs">
+      <DependentUpon>SensorDataWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Autorization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FuncButtonsWIndow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PanicWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RadarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SensorDataShowingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SensorDataWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -101,6 +134,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RadarWindow.xaml.cs">
+      <DependentUpon>RadarWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -135,6 +171,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Icons\radar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kompass.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Compass_Rose_rus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\03265.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

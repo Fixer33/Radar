@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Radar"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="Авторизация" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <TextBox x:Name="LoginTB" HorizontalAlignment="Left" Height="41" Margin="317,124,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Width="150"/>
         <!--<TextBox x:Name="PasswordTB" HorizontalAlignment="Left" Height="41" Margin="317,203,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="150" />-->
-        <PasswordBox x:Name="PasswordTB" HorizontalAlignment="Left" Height="41" Margin="317, 203,0,0" PasswordChar="*" Password="Password" VerticalAlignment="Top" Width="150" />
+        <PasswordBox x:Name="PasswordTB" HorizontalAlignment="Left" Height="41" Margin="317, 203,0,0" PasswordChar="*" Password="" VerticalAlignment="Top" Width="150" />
         <Label x:Name="Auth" Content="Авторизация" HorizontalAlignment="Left" Margin="345,63,0,0" VerticalAlignment="Top" Height="36" Width="101"/>
         <Button x:Name="AuthButton" Content="Вход" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101" Margin="345,286,0,0" Height="28" Click="AuthButton_Click"/>
     </Grid>

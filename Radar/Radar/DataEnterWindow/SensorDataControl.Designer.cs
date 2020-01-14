@@ -151,6 +151,11 @@
             // 
             this.DistanceField.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DistanceField.Location = new System.Drawing.Point(0, 39);
+            this.DistanceField.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.DistanceField.Minimum = new decimal(new int[] {
             10,
             0,

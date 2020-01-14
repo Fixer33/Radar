@@ -162,19 +162,49 @@
             // side2Field
             // 
             this.side2Field.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.side2Field.Increment = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this.side2Field.Location = new System.Drawing.Point(145, 67);
+            this.side2Field.Maximum = new decimal(new int[] {
+            1900,
+            0,
+            0,
+            0});
             this.side2Field.Name = "side2Field";
             this.side2Field.Size = new System.Drawing.Size(120, 23);
             this.side2Field.TabIndex = 4;
-            this.side2Field.ValueChanged += new System.EventHandler(this.side1Field_ValueChanged);
+            this.side2Field.Value = new decimal(new int[] {
+            700,
+            0,
+            0,
+            0});
+            this.side2Field.ValueChanged += new System.EventHandler(this.side2Field_ValueChanged);
             // 
             // side1Field
             // 
             this.side1Field.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.side1Field.Increment = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this.side1Field.Location = new System.Drawing.Point(145, 38);
+            this.side1Field.Maximum = new decimal(new int[] {
+            1900,
+            0,
+            0,
+            0});
             this.side1Field.Name = "side1Field";
             this.side1Field.Size = new System.Drawing.Size(120, 23);
             this.side1Field.TabIndex = 3;
+            this.side1Field.Value = new decimal(new int[] {
+            700,
+            0,
+            0,
+            0});
             this.side1Field.ValueChanged += new System.EventHandler(this.side1Field_ValueChanged);
             // 
             // label3
