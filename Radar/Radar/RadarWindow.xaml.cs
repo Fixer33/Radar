@@ -169,6 +169,7 @@ namespace Radar
                     MainGrid.Children.Remove(targets[i]);
                     targetDistances.RemoveAt(i);
                     targets.RemoveAt(i);
+                    targetSensors.RemoveAt(i);
                 }
             }
         }
